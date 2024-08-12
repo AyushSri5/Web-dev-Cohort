@@ -17,8 +17,8 @@
 */
 
 class Calculator {
-  constructor(result){
-    this.result = result;
+  constructor(){
+    this.result = 0;
   }
   add(number){
     this.result+=number;
@@ -40,8 +40,26 @@ class Calculator {
   getResult(){
     return this.result;
   }
-  calculate(operation){
-    return eval(operation);
+  calculate(expression){
+    try {
+      // Remove spaces
+      let sanitizedExpression = expression.replace(/\s+/g, '');
+
+      // Validate expression to only allow numbers, operators, and parentheses
+      if (!/^[0-9+\-*/().]*$/.test(sanitizedExpression)) {
+        throw new Error("Invalid characters in the expression.");
+      }
+
+      if (/\/0(?!\d)/.test(sanitizedExpression)) {
+        throw new Error("Division by zero error.");
+      }
+
+      // Evaluate the expression
+      this.result = eval(sanitizedExpression);
+      return this.result;
+    } catch (error) {
+      throw new Error("Error evaluating expression: " + error.message);
+    }
   }
 }
 
