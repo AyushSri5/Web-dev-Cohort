@@ -1,0 +1,14 @@
+[
+  {
+    "todo": "Eat eggs",
+    "completed": false
+  },
+  {
+    "todo": "Eat apples",
+    "completed": false
+  },
+  {
+    "todo": "Go to gym",
+    "completed": true
+  }
+]
