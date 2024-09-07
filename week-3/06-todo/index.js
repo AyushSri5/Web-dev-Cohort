@@ -74,7 +74,10 @@ app.post('/todos', (req, res) => {
     res.send("Success");
 })
 
-
+//Delete a todo
+app.delete('/todos/:todo',(req,res) => {
+    
+})
 
 
 
